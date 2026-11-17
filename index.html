@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fixa Aí! — demonstração</title>
+<style>
+:root{--bg:#f6f7fb;--cd:#fff;--tx:#1f2430;--mu:#6b7280;--az:#2a78d6;--ok:#1f9d63;--bd:#dfe3ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#14171f;--cd:#1d222d;--tx:#e8eaf0;--mu:#9aa3b5;--bd:#2d3444}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#14171f;--cd:#1d222d;--tx:#e8eaf0;--mu:#9aa3b5;--bd:#2d3444}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--cd);border-bottom:1px solid var(--bd)}
+header b{cursor:pointer}header span,header select{margin-left:8px}
+main{max-width:820px;margin:16px auto;padding:0 14px}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin:10px 0}.c.m{border-color:var(--ok)}
+.mu{color:var(--mu);font-size:.88em}.t{background:var(--bd);border-radius:99px;padding:1px 9px;font-size:.8em;margin-left:6px}.t.ok{background:var(--ok);color:#fff}
+input,textarea,select{width:100%;padding:8px;margin:4px 0;border:1px solid var(--bd);border-radius:8px;background:var(--cd);color:var(--tx);font:inherit}
+header select{width:auto}button{background:var(--az);color:#fff;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+button.l{background:transparent;color:var(--az);border:1px solid var(--bd);padding:3px 10px}
+a{color:var(--az);cursor:pointer;text-decoration:none}.ab{display:flex;gap:4px;border-bottom:1px solid var(--bd);margin:10px 0;flex-wrap:wrap}
+.ab a{padding:8px 12px;color:var(--mu)}.ab a.on{color:var(--az);border-bottom:2px solid var(--az);font-weight:600}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ok);color:#fff;padding:8px 16px;border-radius:99px}
+fieldset{border:1px solid var(--bd);border-radius:8px;margin:8px 0}label.o{display:block}label.o input{width:auto}
+table{width:100%;border-collapse:collapse}td,th{padding:7px;border-bottom:1px solid var(--bd);text-align:left}.g{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:600px){.g{grid-template-columns:1fr}}
+:root{--bg:#f4efff;--cd:#fff;--tx:#2a1f45;--mu:#7a6f96;--az:#7c3aed;--ok:#10b981;--bd:#e5dcfb;--p:#7c3aed;--r:#ec4899;--y:#f59e0b;--b:#06b6d4}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17102b;--cd:#241a42;--tx:#f1eaff;--mu:#b3a6d6;--bd:#3a2d63;--p:#c4a8ff}}
+:root[data-theme="dark"]{--bg:#17102b;--cd:#241a42;--tx:#f1eaff;--mu:#b3a6d6;--bd:#3a2d63;--p:#c4a8ff}
+body{background:radial-gradient(circle at 10% 0,color-mix(in srgb,var(--r) 14%,transparent),transparent 40%),radial-gradient(circle at 95% 10%,color-mix(in srgb,var(--b) 14%,transparent),transparent 35%),var(--bg);background-attachment:fixed}
+header{background:linear-gradient(90deg,#7c3aed,#ec4899);color:#fff;border:0;box-shadow:0 4px 16px #7c3aed44}header a,header b{color:#fff}header .mu{color:#ffffffcc}
+header select{background:#ffffff33;color:#fff;border-color:#ffffff66;border-radius:99px}header select option{color:#2a1f45}header button.l{color:#fff;border-color:#ffffff88}
+h1,h2{color:var(--p)}h1{font-size:1.7em;margin:.4em 0}
+button{background:linear-gradient(135deg,#7c3aed,#ec4899);border-radius:99px;font-weight:600;box-shadow:0 3px 10px #7c3aed44;transition:transform .12s}button:hover{transform:translateY(-2px) scale(1.03)}
+button.l{background:transparent;color:var(--p);box-shadow:none;border:1px solid var(--bd)}
+.c{border-radius:16px;box-shadow:0 2px 8px #7c3aed14;border-left:5px solid var(--p)}main .c:nth-of-type(4n+2){border-left-color:var(--r)}main .c:nth-of-type(4n+3){border-left-color:var(--y)}main .c:nth-of-type(4n+4){border-left-color:var(--b)}.c.m{border-color:var(--ok);border-left-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--cd))}
+.t{background:color-mix(in srgb,var(--p) 16%,var(--cd));color:var(--p);font-weight:600}.t.ok{background:var(--ok);color:#fff}
+.ab a{border-radius:99px 99px 0 0}.ab a.on{color:var(--r);border-bottom-color:var(--r)}
+.toast{background:linear-gradient(90deg,#10b981,#06b6d4);box-shadow:0 6px 20px #0003;animation:pop .3s}@keyframes pop{from{transform:translateX(-50%) scale(.6);opacity:0}}
+.cod{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,#ede9fe,#fce7f3);border:2px dashed #7c3aed;border-radius:18px;padding:10px 16px;color:#2a1f45;margin:8px 0}.cod b{font:700 1.7em ui-monospace,monospace;letter-spacing:.2em;color:#7c3aed}
+.hero{text-align:center;padding:8px}.hero h1{font-size:2em}.avs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}.avs button{background:var(--cd);color:inherit;box-shadow:none;border:2px solid var(--bd);font-size:1.6em;padding:4px 12px}.avs button.on{border-color:var(--r);background:color-mix(in srgb,var(--r) 15%,var(--cd));transform:scale(1.12)}
+</style></head><body>
+<header><b onclick="go({p:'salas'})">📌 Fixa Aí! <small class="mu">o mural de estudos da galera</small></b>
+<div><select id="eu" onchange="S.eu=+this.value;go({p:'salas'})"></select><button class="l" onclick="novoAluno()">➕ novo usuário</button>
+<a onclick="go({p:'salvos'})">★ Salvos</a><a onclick="resetar()" class="mu">reiniciar</a></div></header>
+<main id="m"></main><div id="ts"></div>
+<script>
+const KEY='mural-demo-v1',TB={duvida:2,comentario:2,melhor:5,resumo:5,quiz:8,curtida:1,salvo:2,acerto:1};
+let S,V={p:'salas'};
+const $=s=>document.getElementById(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nome=u=>{const x=S.users.find(y=>y.id==u);return x?(x.av?x.av+' ':'')+x.nome:'?'},nid=()=>S.n++;let AVS='🦊';const AV=['🦊','🐼','🐙','🦄','🐸','🐯','🚀','🌈'];
+const niv=t=>t>=150?'Mentor':t>=50?'Colaborador':'Novato';
+function award(u,sala,m,ref){const mine=S.pts.filter(p=>p.u==u);let v=TB[m];
+ if(m=='curtida'||m=='salvo')v=Math.min(v,Math.max(0,10-mine.filter(p=>p.m==m&&p.ref==ref).reduce((a,p)=>a+p.v,0)));
+ v=Math.min(v,Math.max(0,50-mine.reduce((a,p)=>a+p.v,0)));
+ if(v>0){S.pts.push({u,sala,m,v,ref});toast(nome(u)+' ganhou +'+v+' pts');}return v}
+const tot=(u,s)=>S.pts.filter(p=>p.u==u&&p.sala==s).reduce((a,p)=>a+p.v,0);
+function toast(t){$('ts').innerHTML='<div class="toast">'+esc(t)+'</div>';setTimeout(()=>{$('ts').innerHTML=''},2200)}
+function seed(){S={n:10,eu:1,ok:0,users:[{id:1,nome:'Ana Souza',av:'🦄'},{id:2,nome:'Beto Lima',av:'🐼'},{id:3,nome:'Caio Rocha',av:'🐙'}],
+ salas:[{id:1,nome:'Métodos Ágeis 4ºC',cod:'DEMO01',mb:[1,2,3]}],pts:[],cur:[],salv:[],tent:{},
+ it:[{id:2,tipo:'duvida',sala:1,au:2,ti:'Qual a diferença entre Lead Time e Cycle Time?',ma:'Kanban',tx:'Não entendi quando cada um começa a contar.',res:0},
+ {id:3,tipo:'resumo',sala:1,au:3,ti:'Resumo de Scrum',ma:'Métodos Ágeis',tx:'Papéis: PO, Scrum Master e Time.\nEventos: Planning, Daily, Review e Retrospectiva.'},
+ {id:4,tipo:'quiz',sala:1,au:1,ti:'Kanban básico',ma:'Kanban',pg:[{q:'WIP significa…',o:['Work in progress','Weekly in plan','Work in product','Wait in process'],c:0,e:'WIP é o limite de trabalho em andamento.'},
+ {id:0,q:'Quem define o valor das histórias?',o:['Dev','Product Owner','Scrum Master','Cliente'],c:1,e:'O PO prioriza pelo valor.'}]}],
+ co:[{id:5,it:2,au:1,tx:'Lead Time conta desde o pedido; Cycle Time, desde que alguém começa a trabalhar.',me:0}]};
+ award(2,1,'duvida','i2');award(1,1,'comentario','c5');award(3,1,'resumo','i3');award(1,1,'quiz','i4');$('ts').innerHTML=''}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}if(!S||!S.users)seed()}
+function resetar(){if(confirm('Voltar aos dados de exemplo?')){seed();go({p:'salas'})}}
+function go(v){V=v;render()}
+function novoAluno(){go({p:'conta'})}
+function pickAv(a){const n=$('un').value;AVS=a;render();$('un').value=n}
+function criarUser(){const n=$('un').value.trim();if(!n)return toast('Digite seu nome 🙂');const id=nid();S.users.push({id,nome:n,av:AVS});S.eu=id;S.ok=1;toast('Bem-vindo(a), '+n+'! 🎉');go({p:'salas'})}
+function entrarComo(id){S.eu=id;S.ok=1;go({p:'salas'})}
+function copiar(c){try{navigator.clipboard.writeText(c).then(()=>toast('Código copiado! 📋'),()=>toast('Código: '+c))}catch(e){toast('Código: '+c)}}
+function conta(){return `<div class="hero"><div style="font-size:3em">📌</div><h1>Fixa Aí! 📌</h1><p class="mu">Aqui o que você aprende fica fixado: tire dúvidas, solte resumos, desafie a turma nos quizzes e ganhe pontos.</p></div><div class="c"><h3>✨ Criar meu usuário</h3><input id="un" placeholder="Seu nome"><p class="mu">Escolha seu avatar:</p><div class="avs">${AV.map(a=>`<button class="${a==AVS?'on':''}" onclick="pickAv('${a}')">${a}</button>`).join('')}</div><button onclick="criarUser()">Criar e entrar 🚀</button></div><div class="c"><h3>👋 Ou entre como um colega</h3><div class="avs">${S.users.map(u=>`<button onclick="entrarComo(${u.id})" style="font-size:1em">${esc(u.av||'🙂')} ${esc(u.nome)}</button>`).join('')}</div></div>`}
+function criarSala(){const n=$('sn').value.trim();if(!n)return;const id=nid(),cod=Math.random().toString(36).slice(2,8).toUpperCase();
+ S.salas.push({id,nome:n,cod,mb:[S.eu]});toast('Código de convite: '+cod);go({p:'sala',s:id,a:'duvida'})}
+function entrarSala(){const s=S.salas.find(x=>x.cod==$('sc').value.trim().toUpperCase());if(!s)return toast('Código não encontrado');
+ if(!s.mb.includes(S.eu))s.mb.push(S.eu);go({p:'sala',s:s.id,a:'duvida'})}
+function postar(tipo){const g=k=>($(k)?.value||'').trim(),ti=g('ti'),ma=g('ma'),tx=g('tx'),it={id:nid(),tipo,sala:V.s,au:S.eu,ti,ma,tx,res:0};
+ if(tipo=='quiz'){it.pg=[1,2].map(n=>({q:g('q'+n),o:[1,2,3,4].map(k=>g('q'+n+'o'+k)),c:+$('q'+n+'c').value,e:g('q'+n+'e')})).filter(p=>p.q&&p.o.every(Boolean));
+  if(!ti||!ma||!it.pg.length)return toast('Preencha título, matéria e 1 pergunta completa')}
+ else if(!ti||!ma||!tx)return toast('Preencha todos os campos');
+ S.it.push(it);award(S.eu,V.s,tipo,'i'+it.id);go({p:'sala',s:V.s,a:tipo,i:it.id})}
+function comentar(i){const t=$('ct').value.trim();if(!t)return;const it=S.it.find(x=>x.id==i),id=nid();
+ S.co.push({id,it:i,au:S.eu,tx:t,me:0});award(S.eu,it.sala,'comentario','c'+id);render()}
+function curtir(k,id){const key=S.eu+'|'+k+id,i=S.cur.indexOf(key);if(i>=0){S.cur.splice(i,1);return render()}
+ S.cur.push(key);const o=k=='c'?S.co.find(x=>x.id==id):S.it.find(x=>x.id==id),sala=k=='c'?S.it.find(x=>x.id==o.it).sala:o.sala;
+ if(o.au!=S.eu)award(o.au,sala,'curtida',k+id);render()}
+function salvar(id){const key=S.eu+'|'+id,i=S.salv.indexOf(key),o=S.it.find(x=>x.id==id);if(i>=0){S.salv.splice(i,1);return render()}
+ S.salv.push(key);if(o.au!=S.eu)award(o.au,o.sala,'salvo','i'+id);render()}
+function melhor(i,c){const it=S.it.find(x=>x.id==i),co=S.co.find(x=>x.id==c);if(it.au!=S.eu||it.res)return;
+ it.res=1;co.me=1;if(co.au!=S.eu)award(co.au,it.sala,'melhor','c'+c);render()}
+function enviarQuiz(i){const it=S.it.find(x=>x.id==i);let a=0;
+ it.pg.forEach((p,n)=>{const r=document.querySelector('input[name=r'+n+']:checked');if(r&&+r.value==p.c)a++});
+ S.tent[S.eu+'|'+i]={a,t:it.pg.length};for(let k=0;k<a;k++)award(S.eu,it.sala,'acerto','q'+i+k);render()}
+const N=s=>S.it.filter(x=>x.sala==s);
+function acoes(o){const l=S.cur.filter(k=>k.endsWith('|i'+o.id)).length,s=S.salv.filter(k=>k.endsWith('|'+o.id)).length,sv=S.salv.includes(S.eu+'|'+o.id);
+ return `<button class="l" onclick="curtir('i',${o.id})">👍 Curtir (${l})</button> `+(o.tipo!='duvida'?`<button class="l" onclick="salvar(${o.id})">${sv?'★ Salvo':'☆ Salvar'} (${s})</button>`:'')}
+function coms(o){const L=S.co.filter(c=>c.it==o.id).sort((a,b)=>b.me-a.me);
+ return `<h3>${o.tipo=='duvida'?'Respostas':'Comentários'} (${L.length})</h3>`+L.map(c=>`<div class="c ${c.me?'m':''}"><div>${esc(c.tx)}</div>
+ <div class="mu">${esc(nome(c.au))}${c.me?' · ✅ melhor resposta':''}</div>
+ <button class="l" onclick="curtir('c',${c.id})">👍 ${S.cur.filter(k=>k.endsWith('|c'+c.id)).length}</button>
+ ${o.tipo=='duvida'&&o.au==S.eu&&!o.res?`<button class="l" onclick="melhor(${o.id},${c.id})">Marcar como melhor</button>`:''}</div>`).join('')||'<p class="mu">Seja o primeiro a comentar!</p>'
+ +`<textarea id="ct" rows="2" placeholder="Escreva aqui…"></textarea><button onclick="comentar(${o.id})">Enviar (+2 pts)</button>`}
+function lista(s,tipo){const q=(V.q||'').toLowerCase(),L=N(s).filter(x=>x.tipo==tipo&&(x.ti+x.ma+(x.tx||'')).toLowerCase().includes(q)).reverse();
+ const f=tipo=='quiz'?[1,2].map(n=>`<fieldset><legend>Pergunta ${n}${n>1?' (opcional)':''}</legend><input id="q${n}" placeholder="Enunciado">`+[1,2,3,4].map(k=>`<input id="q${n}o${k}" placeholder="Opção ${k}">`).join('')+`<select id="q${n}c">${[1,2,3,4].map((k,j)=>`<option value="${j}">Correta: opção ${k}</option>`).join('')}</select><input id="q${n}e" placeholder="Explicação (opcional)"></fieldset>`).join(''):`<textarea id="tx" rows="4" placeholder="${tipo=='duvida'?'Descreva sua dúvida':'Cole o resumo (texto) ou um link do Drive'}"></textarea>`;
+ return `<div style="display:flex;gap:8px"><input id="bq" value="${esc(V.q||'')}" placeholder="Buscar por matéria ou palavra" onkeydown="if(event.key=='Enter'){V.q=this.value;render()}"><button onclick="V.q=$('bq').value;render()">Buscar</button></div>`
+ +(L.map(x=>`<div class="c"><a onclick="go({p:'sala',s:${s},a:'${tipo}',i:${x.id}})"><b>${esc(x.ti)}</b></a><span class="t">${esc(x.ma)}</span>${x.res?'<span class="t ok">resolvida</span>':''}
+ <div class="mu">${esc(nome(x.au))} · 👍 ${S.cur.filter(k=>k.endsWith('|i'+x.id)).length}${tipo=='quiz'?' · '+x.pg.length+' pergunta(s)':''}</div></div>`).join('')||'<p class="mu">Nada por aqui ainda.</p>')
+ +`<h3>${{duvida:'Postar dúvida (+2 pts)',resumo:'Publicar resumo (+5 pts)',quiz:'Criar quiz (+8 pts)'}[tipo]}</h3><input id="ti" placeholder="Título"><input id="ma" placeholder="Matéria">${f}<button onclick="postar('${tipo}')">Publicar</button>`}
+function detalhe(o){let h=`<p><a onclick="go({p:'sala',s:${o.sala},a:'${o.tipo}'})">← voltar</a></p><h2>${esc(o.ti)} <span class="t">${esc(o.ma)}</span>${o.res?'<span class="t ok">resolvida</span>':''}</h2>`;
+ if(o.tipo!='quiz')h+=`<div class="c" style="white-space:pre-wrap">${esc(o.tx)}</div>`;
+ h+=`<p class="mu">${esc(nome(o.au))}</p><p>${acoes(o)}</p>`;
+ if(o.tipo=='quiz'){const t=S.tent[S.eu+'|'+o.id];
+  h+=t?`<div class="c m"><b>Sua nota: ${t.a} de ${t.t}</b></div>`+o.pg.map((p,n)=>`<div class="c"><b>${n+1}. ${esc(p.q)}</b><div>Resposta certa: ${esc(p.o[p.c])}</div><div class="mu">${esc(p.e)}</div></div>`).join('')
+  :o.pg.map((p,n)=>`<fieldset><legend>${n+1}. ${esc(p.q)}</legend>`+p.o.map((x,k)=>`<label class="o"><input type="radio" name="r${n}" value="${k}"> ${esc(x)}</label>`).join('')+'</fieldset>').join('')+`<button onclick="enviarQuiz(${o.id})">Enviar respostas (+1 pt por acerto)</button>`}
+ return h+coms(o)}
+function render(){const u=$('eu');u.innerHTML=S.users.map(x=>`<option value="${x.id}" ${x.id==S.eu?'selected':''}>${esc(x.nome)}</option>`).join('');
+ let h='';
+ if(V.p=='conta'){h=conta()}
+ else if(V.p=='salas'){h=`<h1>Minhas salas</h1>`+(S.salas.filter(s=>s.mb.includes(S.eu)).map(s=>`<div class="c"><a onclick="go({p:'sala',s:${s.id},a:'duvida'})"><b>${esc(s.nome)}</b></a> <span class="mu">· código ${s.cod}</span></div>`).join('')||'<p class="mu">Você ainda não está em nenhuma sala. Tente o código DEMO01.</p>')
+ +`<div class="g"><div><h3>Criar sala</h3><input id="sn" placeholder="Ex.: Métodos Ágeis 4ºC"><button onclick="criarSala()">Criar</button></div><div><h3>Entrar numa sala</h3><input id="sc" placeholder="Código de convite"><button onclick="entrarSala()">Entrar</button></div></div>
+ <p class="mu">Troque de aluno no topo para ver curtidas, salvos e pontos entre colegas.</p>`}
+ else if(V.p=='salvos'){const L=S.salv.filter(k=>k.startsWith(S.eu+'|')).map(k=>S.it.find(x=>x.id==k.split('|')[1])).filter(Boolean);
+  h='<h1>Meus salvos</h1>'+(L.map(x=>`<div class="c"><a onclick="go({p:'sala',s:${x.sala},a:'${x.tipo}',i:${x.id}})"><b>${esc(x.ti)}</b></a><span class="t">${x.tipo}</span></div>`).join('')||'<p class="mu">Nada salvo ainda.</p>')}
+ else{const s=S.salas.find(x=>x.id==V.s);if(!s.mb.includes(S.eu)){h='<p>Você não é membro desta sala.</p>'}else{
+  h=`<h1>${esc(s.nome)}</h1><div class="cod"><span>🔑 Código da sala:</span><b>${s.cod}</b><button onclick="copiar('${s.cod}')">📋 Copiar</button></div><p class="mu">Passe este código para os colegas entrarem em “Entrar numa sala”.</p><div class="ab">`+[['duvida','❓ Dúvidas'],['resumo','📝 Resumos'],['quiz','🎯 Quizzes'],['rank','🏆 Ranking']].map(([a,n])=>`<a class="${V.a==a?'on':''}" onclick="go({p:'sala',s:${s.id},a:'${a}'})">${n}</a>`).join('')+'</div>';
+  if(V.a=='rank'){const t=tot(S.eu,s.id);h+=`<p>Seus pontos: <b>${t}</b> · nível <b>${niv(t)}</b></p><table><tr><th>#</th><th>Nome</th><th>Pontos</th><th>Nível</th></tr>`
+   +s.mb.map(m=>[m,tot(m,s.id)]).sort((a,b)=>b[1]-a[1]).map(([m,t],i)=>`<tr><td>${i+1}</td><td>${esc(nome(m))}</td><td>${t}</td><td>${niv(t)}</td></tr>`).join('')+`</table><p class="mu">Níveis: Novato 0–49, Colaborador 50–149, Mentor 150+. Teto de 50 pontos por dia; sem pontos no próprio conteúdo.</p>`}
+  else if(V.i){h+=detalhe(S.it.find(x=>x.id==V.i))}else h+=lista(s.id,V.a)}}
+ $('m').innerHTML=h;save()}
+load();if(!S.ok)V={p:'conta'};render();
+</script></body></html>
